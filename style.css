@@ -1,0 +1,351 @@
+/* --- Canlı ve Modern Tema Ayarları --- */
+:root {
+    /* Ana Renkler (Daha canlı mavi ve mor tonları) */
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-color: #ff6b6b; /* Canlı mercan (Aksiyonlar için) */
+    
+    /* Arka Plan ve Kartlar */
+    --bg-app: #f0f4f8; /* Çok hafif maviye çalan gri */
+    --bg-panel: #ffffff;
+    --bg-card: #ffffff;
+    
+    /* Metin Renkleri */
+    --text-main: #2d3748;
+    --text-muted: #718096;
+    --text-on-gradient: #ffffff;
+    
+    /* Diğer */
+    --border-color: #e2e8f0;
+    --rating-color: #f6e05e; /* Daha altın sarısı */
+    --stock-green: #48bb78;
+    --nostock-red: #f56565;
+    
+    /* Gölgeler ve Köşeler */
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-premium: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --radius-md: 12px;
+    --radius-sm: 8px;
+}
+
+/* --- Temel Stiller --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    /* Daha modern bir yazı tipi */
+    font-family: 'Poppins', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-app);
+    color: var(--text-main);
+    padding: 20px;
+    background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+    background-size: 20px 20px; /* Arka plana hafif doku */
+}
+
+.container {
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+/* --- Dil Seçici (Daha şık) --- */
+.language-selector {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+}
+
+.language-selector button {
+    background: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-muted);
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s;
+}
+
+.language-selector button:hover {
+    background-color: rgba(118, 75, 162, 0.1);
+    color: #764ba2;
+}
+
+/* --- Header (Gradyan Başlık) --- */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    background: var(--primary-gradient);
+    padding: 40px 20px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+}
+
+header h1 {
+    color: var(--text-on-gradient);
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 50px; /* Tam yuvarlak */
+    outline: none;
+    font-size: 1rem;
+    box-shadow: var(--shadow-md);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+#search-input:focus {
+    box-shadow: var(--shadow-premium);
+    transform: scale(1.02);
+}
+
+/* --- Ana Düzen (Layout) --- */
+.layout {
+    display: flex;
+    gap: 30px;
+}
+
+/* --- Filtre Paneli (Sidebar) --- */
+.filter-panel {
+    width: 300px;
+    background: var(--bg-panel);
+    padding: 25px;
+    border-radius: var(--radius-md);
+    height: fit-content;
+    box-shadow: var(--shadow-md);
+    position: sticky; /* Sayfayla beraber kayması için */
+    top: 20px;
+}
+
+.filter-panel h3 {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    color: #764ba2;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.filter-group {
+    margin-bottom: 25px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-main);
+}
+
+/* Input ve Select Tasarımları */
+select {
+    width: 100%;
+    padding: 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    background-color: #f8fafc;
+    font-size: 0.9rem;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+select:focus {
+    border-color: #667eea;
+}
+
+/* Fiyat Slider (Range) Tasarımı */
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    background: transparent;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #e2e8f0;
+    border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #764ba2;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -6px; /* Track'e ortalamak için */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: background 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: #667eea;
+}
+
+#price-val {
+    color: #764ba2;
+    font-weight: 700;
+}
+
+/* Checkbox */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #764ba2; /* Checkbox rengi */
+    cursor: pointer;
+}
+
+/* Sıfırla Butonu */
+#reset-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 4px 6px rgba(255, 107, 107, 0.3);
+}
+
+#reset-btn:hover {
+    background: #ee5253;
+}
+
+#reset-btn:active {
+    transform: translateY(1px);
+}
+
+/* --- Ürün Grid Alanı --- */
+.product-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* --- Ürün Kartı (Daha Canlı ve İnteraktif) --- */
+.product-card {
+    background: var(--bg-card);
+    padding: 20px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden; /* Badge'lerin taşmaması için */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Hover Etkisi */
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-premium);
+    border-color: #e2e8f0;
+}
+
+/* Ürün İkonu / Resmi */
+.product-img {
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    border-radius: var(--radius-sm);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    transition: transform 0.3s;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+.product-card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+/* Puanlama (Yıldız) */
+.rating {
+    color: var(--rating-color);
+    font-size: 1rem;
+    margin: 8px 0;
+    font-weight: 700;
+}
+
+/* Fiyat */
+.price {
+    color: #2d3748;
+    font-weight: 800;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    background: rgba(118, 75, 162, 0.1);
+    padding: 5px;
+    border-radius: var(--radius-sm);
+}
+
+/* Stok Durumu Badge */
+.stock-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(72, 187, 120, 0.15);
+    color: var(--stock-green);
+    letter-spacing: 0.5px;
+}
+
+.out-of-stock {
+    background: rgba(245, 101, 101, 0.15);
+    color: var(--nostock-red);
+}
+
+/* --- Responsive Ayarlar (Mobil) --- */
+@media (max-width: 900px) {
+    .layout {
+        flex-direction: column;
+    }
+    
+    .filter-panel {
+        width: 100%;
+        position: relative;
+        top: 0;
+        margin-bottom: 20px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+}

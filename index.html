@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Filter Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="language-selector">
+            <button onclick="setLanguage('tr')">TR</button>
+            <span>|</span>
+            <button onclick="setLanguage('en')">EN</button>
+        </div>
+
+        <header>
+            <h1 data-i18n="mainTitle">Ürün Kataloğu</h1>
+            <input type="text" id="search-input" data-i18n-placeholder="searchPlaceholder" placeholder="Ürün ara...">
+        </header>
+
+        <div class="layout">
+            <aside class="filter-panel">
+                <h3 data-i18n="filterTitle">Filtreler</h3>
+                
+                <div class="filter-group">
+                    <label data-i18n="labelCategory">Kategori</label>
+                    <select id="category-filter">
+                        <option value="all" data-i18n="all">Hepsi</option>
+                        <option value="Elektronik" data-i18n="catElec">Elektronik</option>
+                        <option value="Moda" data-i18n="catModa">Moda</option>
+                        <option value="Ev & Yaşam" data-i18n="catHome">Ev & Yaşam</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label data-i18n="labelPrice">Maksimum Fiyat: <span id="price-val">5000</span>₺</label>
+                    <input type="range" id="price-filter" min="0" max="5000" step="100" value="5000">
+                </div>
+
+                <div class="filter-group">
+                    <label data-i18n="labelRating">Minimum Puan (★)</label>
+                    <select id="rating-filter">
+                        <option value="0">0+</option>
+                        <option value="3">3+</option>
+                        <option value="4">4+</option>
+                        <option value="4.5">4.5+</option>
+                    </select>
+                </div>
+
+                <div class="filter-group checkbox-group">
+                    <input type="checkbox" id="stock-filter">
+                    <label for="stock-filter" data-i18n="labelInStock">Sadece Stoktakiler</label>
+                </div>
+
+                <button id="reset-btn" data-i18n="btnReset">Filtreleri Sıfırla</button>
+            </aside>
+
+            <main id="product-grid" class="product-grid">
+                </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
